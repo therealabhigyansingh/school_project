@@ -1,0 +1,25 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Trainer artifacts (huge — regenerate locally).
+# Exclude contents but keep the README (whitelisting requires that the parent
+# directory itself isn't ignored — git won't descend into a fully-ignored dir).
+trainer/data/
+trainer/inputs/*
+!trainer/inputs/README.md
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log

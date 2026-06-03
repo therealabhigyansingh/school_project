@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hangman · SignSpeak</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/signspeak.svg" alt="" class="brand__mark" />
+      <span class="brand__word">SignSpeak</span>
+    </a>
+    <nav class="app-nav">
+      <a href="decoder.html">Decoder</a>
+      <a href="practice.html">Practice</a>
+      <a href="hangman.html">Hangman</a>
+    </nav>
+  </header>
+
+  <main class="page page--hangman">
+    <h1 class="page__title">Hangman</h1>
+
+    <div class="layout-2">
+      <div class="camera-panel">
+        <video id="cam-video" autoplay playsinline muted></video>
+        <canvas id="cam-overlay"></canvas>
+        <div class="camera-meta">
+          <span class="mono">current: <span id="current-letter">—</span></span>
+          <span class="mono">conf <span id="conf">0.00</span></span>
+        </div>
+      </div>
+
+      <aside class="card hangman-panel">
+        <svg class="hangman-figure" viewBox="0 0 120 160" aria-hidden="true">
+          <line class="hpart" data-part="0" x1="10" y1="150" x2="80" y2="150"></line>
+          <line class="hpart" data-part="0" x1="30" y1="150" x2="30" y2="20"></line>
+          <line class="hpart" data-part="0" x1="30" y1="20" x2="80" y2="20"></line>
+          <line class="hpart" data-part="0" x1="80" y1="20" x2="80" y2="40"></line>
+          <circle class="hpart" data-part="1" cx="80" cy="50" r="10"></circle>
+          <line class="hpart" data-part="2" x1="80" y1="60" x2="80" y2="100"></line>
+          <line class="hpart" data-part="3" x1="80" y1="70" x2="65" y2="85"></line>
+          <line class="hpart" data-part="4" x1="80" y1="70" x2="95" y2="85"></line>
+          <line class="hpart" data-part="5" x1="80" y1="100" x2="65" y2="120"></line>
+          <line class="hpart" data-part="6" x1="80" y1="100" x2="95" y2="120"></line>
+        </svg>
+
+        <div class="word-mask mono" id="word-mask">_ _ _ _</div>
+
+        <div class="lives mono">
+          <span class="lives__label">lives</span>
+          <span id="lives-dots"></span>
+        </div>
+
+        <div class="wrong-list mono">
+          <span class="wrong-list__label">wrong</span>
+          <span id="wrong-list"></span>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn--ghost" id="btn-new">New word</button>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="end-dialog" class="modal">
+      <h2 class="modal__title" id="end-title">You won.</h2>
+      <p class="modal__body">The word was <span class="mono" id="end-word"></span>.</p>
+      <div class="modal__actions">
+        <a class="btn btn--ghost" href="index.html">Home</a>
+        <button class="btn btn--primary" id="btn-again">New word</button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="app-footer">
+    <span>© SignSpeak</span>
+    <span class="status">
+      <span class="status__dot" id="ws-status-dot"></span>
+      <span id="ws-status-text">connecting</span>
+    </span>
+  </footer>
+
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/hangman.js"></script>
+</body>
+</html>

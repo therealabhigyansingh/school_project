@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Practice · SignSpeak</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/signspeak.svg" alt="" class="brand__mark" />
+      <span class="brand__word">SignSpeak</span>
+    </a>
+    <nav class="app-nav">
+      <a href="decoder.html">Decoder</a>
+      <a href="practice.html">Practice</a>
+      <a href="hangman.html">Hangman</a>
+    </nav>
+  </header>
+
+  <main class="page page--practice">
+    <section id="letter-picker" class="letter-picker">
+      <h1 class="page__title">Pick a letter</h1>
+      <div class="letter-grid" id="letter-grid"></div>
+    </section>
+
+    <section id="practice-view" class="practice-view" hidden>
+      <button class="back-link" id="btn-back">‹ back</button>
+
+      <div class="layout-2">
+        <div class="reference">
+          <div class="reference__img-wrap">
+            <img id="reference-img" alt="" />
+            <div class="reference__placeholder mono" id="reference-placeholder">no reference image</div>
+          </div>
+          <div class="reference__target">
+            <span class="reference__label mono">target</span>
+            <span class="reference__letter mono" id="target-letter">—</span>
+          </div>
+        </div>
+
+        <div class="camera-column">
+          <div class="camera-panel">
+            <video id="cam-video" autoplay playsinline muted></video>
+            <canvas id="cam-overlay"></canvas>
+            <svg class="ring" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="54" class="ring__bg"></circle>
+              <circle cx="60" cy="60" r="54" class="ring__fg" id="ring-fg"></circle>
+            </svg>
+            <div class="hold-text mono" id="hold-text">0.0 / 5.0s</div>
+          </div>
+          <div class="feedback" id="feedback"></div>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <span class="mono">current: <span id="current-letter">—</span></span>
+        <span class="mono">conf <span id="conf">0.00</span></span>
+      </div>
+    </section>
+
+    <dialog id="success-dialog" class="modal">
+      <h2 class="modal__title">Nice.</h2>
+      <p class="modal__body">You held <span id="success-letter" class="mono"></span> for 5 seconds.</p>
+      <div class="modal__actions">
+        <button class="btn btn--ghost" id="btn-exit">Exit</button>
+        <button class="btn btn--primary" id="btn-next">Next letter</button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer class="app-footer">
+    <span>© SignSpeak</span>
+    <span class="status">
+      <span class="status__dot" id="ws-status-dot"></span>
+      <span id="ws-status-text">idle</span>
+    </span>
+  </footer>
+
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/practice.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SignSpeak</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/signspeak.svg" alt="" class="brand__mark" />
+      <span class="brand__word">SignSpeak</span>
+    </a>
+    <nav class="app-nav">
+      <a href="decoder.html">Decoder</a>
+      <a href="practice.html">Practice</a>
+      <a href="hangman.html">Hangman</a>
+    </nav>
+  </header>
+
+  <main class="page page--landing">
+    <section class="hero">
+      <h1 class="hero__title">Speak with<br/>your hands.</h1>
+      <p class="hero__lede">A real-time ASL decoder, practice trainer, and hangman game — all from your webcam.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="decoder.html">Start decoding</a>
+        <a class="btn btn--ghost" href="practice.html">Practice</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <a class="feature" href="decoder.html">
+        <div class="feature__num mono">01</div>
+        <h2 class="feature__title">Decoder</h2>
+        <p class="feature__desc">Sign letters in real time. Pause for five seconds and we'll add a space.</p>
+      </a>
+      <a class="feature" href="practice.html">
+        <div class="feature__num mono">02</div>
+        <h2 class="feature__title">Practice</h2>
+        <p class="feature__desc">Pick a letter, see the reference, hold the sign for five seconds to advance.</p>
+      </a>
+      <a class="feature" href="hangman.html">
+        <div class="feature__num mono">03</div>
+        <h2 class="feature__title">Hangman</h2>
+        <p class="feature__desc">Sign letters to guess the word. Six wrong and you're out.</p>
+      </a>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>© SignSpeak</span>
+    <span class="status">
+      <span class="status__dot" id="ws-status-dot"></span>
+      <span id="ws-status-text">idle</span>
+    </span>
+  </footer>
+
+  <script type="module" src="js/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Decoder · SignSpeak</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="index.html">
+      <img src="assets/signspeak.svg" alt="" class="brand__mark" />
+      <span class="brand__word">SignSpeak</span>
+    </a>
+    <nav class="app-nav">
+      <a href="decoder.html">Decoder</a>
+      <a href="practice.html">Practice</a>
+      <a href="hangman.html">Hangman</a>
+    </nav>
+  </header>
+
+  <main class="page page--decoder">
+    <h1 class="page__title">Decoder</h1>
+
+    <div class="layout-2">
+      <div class="camera-panel">
+        <video id="cam-video" autoplay playsinline muted></video>
+        <canvas id="cam-overlay"></canvas>
+        <div class="camera-meta">
+          <span class="rec"><span class="rec__dot"></span> live</span>
+          <span class="mono" id="fps">0 fps</span>
+        </div>
+      </div>
+
+      <aside class="card decoder-output">
+        <div class="letter-big mono" id="letter">—</div>
+        <div class="confidence">
+          <span class="confidence__label mono">conf</span>
+          <div class="confidence__bar"><div class="confidence__fill" id="conf-fill"></div></div>
+          <span class="confidence__value mono" id="conf">0.00</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text-out mono" id="text-out"></div>
+        <div class="hand-status mono" id="hand-status"></div>
+
+        <div class="actions">
+          <button class="btn btn--ghost" id="btn-reset">Reset</button>
+          <button class="btn btn--ghost" id="btn-copy">Copy</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <span>© SignSpeak</span>
+    <span class="status">
+      <span class="status__dot" id="ws-status-dot"></span>
+      <span id="ws-status-text">connecting</span>
+    </span>
+  </footer>
+
+  <script type="module" src="js/nav.js"></script>
+  <script type="module" src="js/decoder.js"></script>
+</body>
+</html>
